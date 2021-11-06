@@ -43,6 +43,7 @@ async function run() {
     app.post("/confirmedTour", async (req, res) => {
         const result = await confirmedCollection.insertOne(req.body)
         res.send(result);
+        console.log("confirmed", result);
     })
 
     // get my orders
@@ -74,7 +75,8 @@ async function run() {
   run().catch(console.dir);
 
 app.get("/", (req, res) =>{
-    console.log("running GoSMR Server");
+   res.send("running GoSMR Server")
+   console.log("running GoSMR Server");
 });
 
 app.listen(port, ()=>{
